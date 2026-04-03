@@ -247,11 +247,11 @@ export default function Index() {
               {/* Avatar + name */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="relative">
-                  <div className="w-16 h-16 rounded-full bg-[#8B7355] flex items-center justify-center text-xl text-white font-semibold">АИ</div>
+                  <div className="w-16 h-16 rounded-full bg-[#8B7355] flex items-center justify-center text-xl text-white font-semibold">МР</div>
                   <div className="absolute -bottom-1 -right-1 bg-amber-400 rounded-full w-6 h-6 flex items-center justify-center text-xs">🔥</div>
                 </div>
                 <div>
-                  <div className="font-semibold text-[#1C1A16] text-lg">Александр И.</div>
+                  <div className="font-semibold text-[#1C1A16] text-lg">Максим Р.</div>
                   <div className="text-sm text-[#8B8070]">Исследователь истории</div>
                 </div>
               </div>
@@ -424,7 +424,7 @@ export default function Index() {
             onClick={() => setShowProfile(true)}
             className="relative w-10 h-10 rounded-full bg-[#8B7355] flex items-center justify-center text-white text-sm font-semibold"
           >
-            АИ
+            МР
             <span className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-amber-400 rounded-full border-2 border-[#F5F3EF] flex items-center justify-center text-[7px]">🔥</span>
           </button>
         </div>
@@ -551,7 +551,7 @@ export default function Index() {
                 </button>
                 {CITIES.map((c) => (
                   <button key={c.id} onClick={() => setSelectedCity(c.id)} className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedCity === c.id ? "bg-[#1C1A16] text-white" : "bg-[#E8E4DC] text-[#6B6355]"}`}>
-                    {c.id === "nn" ? "Н. Новгород" : "Москва"}
+                    {c.name.length > 10 ? c.name.split(" ")[0] : c.name}
                   </button>
                 ))}
               </div>
@@ -602,10 +602,10 @@ export default function Index() {
           {/* MAP TAB */}
           {activeTab === "map" && (
             <div className="animate-fade-in">
-              <div className="px-5 flex gap-2 mb-4">
+              <div className="px-5 flex gap-2 mb-4 overflow-x-auto pb-1">
                 {CITIES.map((c) => (
-                  <button key={c.id} onClick={() => setMapCity(c.id)} className={`flex-1 py-2 rounded-full text-sm font-medium transition-all ${mapCity === c.id ? "bg-[#1C1A16] text-white" : "bg-[#E8E4DC] text-[#6B6355]"}`}>
-                    {c.id === "nn" ? "Н. Новгород" : "Москва"}
+                  <button key={c.id} onClick={() => setMapCity(c.id)} className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all ${mapCity === c.id ? "bg-[#1C1A16] text-white" : "bg-[#E8E4DC] text-[#6B6355]"}`}>
+                    {c.name.split(" ")[0]}
                   </button>
                 ))}
               </div>
